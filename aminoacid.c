@@ -71,7 +71,7 @@ void replaceInput(const char input[], char output[], size_t size)
         codon[1] = copy[index + 1];
         codon[2] = copy[index + 2];
 
-        replaceCodon(codon, strlen(codon)); // We replace the codon string with the aminoacid abbreviation.
+        replaceCodon(codon); // We replace the codon string with the aminoacid abbreviation.
 
         // We copy char by char the aminoacid abbreviation in the input string:
         copy[index] = codon[0];
@@ -85,14 +85,30 @@ void replaceInput(const char input[], char output[], size_t size)
     strncpy(output, copy, size);
 }
 
-void replaceCodon(char codon[], size_t size)
+void replaceCodon(char codon[])
 {
-    // If the codon is some aminoacid, we copy char by char the aminoacid abbreviation in the codon string:
-    if (isAminoacid(codon, "Phe"))
+    size_t size = strlen(codon) + 1; // With strlen we get the number of characters (not including the last char, '\0') and we add 1 for the last char.
+    bool replaced = false;           // Equals true when some aminoacid has matched with the codon.
+    char *aminoacidAbbreviation[] = {"Phe", "Leu", "Ile", "Met", "Val", "Ser", "Pro", "Thr", "Ala",
+                                     "Tyr", "STO", "His", "Gln", "Asn", "Lys", "Asp", "Glu", "Cys",
+                                     "Trp", "Arg", "Gly"};
+    // As the codon string has three characters and we're replacing it with the aminoacid abbreviation, STOP becomes STO.
+    int i = 0;                         // Iterator used in while search.
+    const int numberOfAminoacids = 21; // Number of aminoacids.
+
+    // If the codon is some aminoacid, we copy the aminoacid abbreviation in the codon string.
+    // For that, we iterate the aminoacidAbbreviation array, and if the codon matches with the i aminoacid, isAminoacid returns true and we replace it.
+    while (!replaced && i < numberOfAminoacids)
     {
-        codon[0] = 'P';
-        codon[1] = 'h';
-        codon[2] = 'e';
+        if (isAminoacid(codon, aminoacidAbbreviation[i]))
+        {
+            replaced = true;
+            strncpy(codon, aminoacidAbbreviation[i], size);
+        }
+        else
+        {
+            i++;
+        }
     }
 }
 
@@ -101,9 +117,10 @@ bool isAminoacid(const char codon[], const char aminoacid[])
     bool found = false;
     size_t size = strlen(codon); // We get the number of characters (not including the last char, '\0').
     int i = 0;                   // Iterator used for while search.
+    // We should create a data structure so that we don't have to create 20 else-if...
     if (strncmp(aminoacid, "Phe", size) == 0)
     {
-        while (!found && i < numberOfPheCodons)
+        while (i < numberOfPheCodons && !found)
         {
             if (strncmp(codon, Phe[i], size) == 0)
             {
