@@ -21,7 +21,7 @@ char *STOP[] = {"UAA", "UAG", "UGA"};
 char *His[] = {"CAU", "CAC"};
 char *Gln[] = {"CAA", "CAG"};
 char *Asn[] = {"AAU", "AAC"};
-char *Lys[] = {"AAA", "Lys"};
+char *Lys[] = {"AAA", "AAG"};
 char *Asp[] = {"GAU", "GAC"};
 char *Glu[] = {"GAA", "GAG"};
 char *Cys[] = {"UGU", "UGC"};
@@ -123,6 +123,286 @@ bool isAminoacid(const char codon[], const char aminoacid[])
         while (i < numberOfPheCodons && !found)
         {
             if (strncmp(codon, Phe[i], size) == 0)
+            {
+                found = true;
+            }
+            else
+            {
+                i++;
+            }
+        }
+    }
+    else if (strncmp(aminoacid, "Leu", size) == 0)
+    {
+        while (i < numberOfLeuCodons && !found)
+        {
+            if (strncmp(codon, Leu[i], size) == 0)
+            {
+                found = true;
+            }
+            else
+            {
+                i++;
+            }
+        }
+    }
+    else if (strncmp(aminoacid, "Ile", size) == 0)
+    {
+        while (i < numberOfIleCodons && !found)
+        {
+            if (strncmp(codon, Ile[i], size) == 0)
+            {
+                found = true;
+            }
+            else
+            {
+                i++;
+            }
+        }
+    }
+    else if (strncmp(aminoacid, "Met", size) == 0)
+    {
+        while (i < numberOfMetCodons && !found)
+        {
+            if (strncmp(codon, Met[i], size) == 0)
+            {
+                found = true;
+            }
+            else
+            {
+                i++;
+            }
+        }
+    }
+    else if (strncmp(aminoacid, "Val", size) == 0)
+    {
+        while (i < numberOfValCodons && !found)
+        {
+            if (strncmp(codon, Val[i], size) == 0)
+            {
+                found = true;
+            }
+            else
+            {
+                i++;
+            }
+        }
+    }
+    else if (strncmp(aminoacid, "Ser", size) == 0)
+    {
+        while (i < numberOfSerCodons && !found)
+        {
+            if (strncmp(codon, Ser[i], size) == 0)
+            {
+                found = true;
+            }
+            else
+            {
+                i++;
+            }
+        }
+    }
+    else if (strncmp(aminoacid, "Pro", size) == 0)
+    {
+        while (i < numberOfProCodons && !found)
+        {
+            if (strncmp(codon, Pro[i], size) == 0)
+            {
+                found = true;
+            }
+            else
+            {
+                i++;
+            }
+        }
+    }
+    else if (strncmp(aminoacid, "Thr", size) == 0)
+    {
+        while (i < numberOfThrCodons && !found)
+        {
+            if (strncmp(codon, Thr[i], size) == 0)
+            {
+                found = true;
+            }
+            else
+            {
+                i++;
+            }
+        }
+    }
+    else if (strncmp(aminoacid, "Ala", size) == 0)
+    {
+        while (i < numberOfAlaCodons && !found)
+        {
+            if (strncmp(codon, Ala[i], size) == 0)
+            {
+                found = true;
+            }
+            else
+            {
+                i++;
+            }
+        }
+    }
+    else if (strncmp(aminoacid, "Tyr", size) == 0)
+    {
+        while (i < numberOfTyrCodons && !found)
+        {
+            if (strncmp(codon, Tyr[i], size) == 0)
+            {
+                found = true;
+            }
+            else
+            {
+                i++;
+            }
+        }
+    }
+    else if (strncmp(aminoacid, "STO", size) == 0) // Remember that we can only write three char, that's why STO and not STOP.
+    {
+        while (i < numberOfSTOPCodons && !found)
+        {
+            if (strncmp(codon, STOP[i], size) == 0)
+            {
+                found = true;
+            }
+            else
+            {
+                i++;
+            }
+        }
+    }
+    else if (strncmp(aminoacid, "His", size) == 0)
+    {
+        while (i < numberOfHisCodons && !found)
+        {
+            if (strncmp(codon, His[i], size) == 0)
+            {
+                found = true;
+            }
+            else
+            {
+                i++;
+            }
+        }
+    }
+    else if (strncmp(aminoacid, "Gln", size) == 0)
+    {
+        while (i < numberOfGlnCodons && !found)
+        {
+            if (strncmp(codon, Gln[i], size) == 0)
+            {
+                found = true;
+            }
+            else
+            {
+                i++;
+            }
+        }
+    }
+    else if (strncmp(aminoacid, "Asn", size) == 0)
+    {
+        while (i < numberOfAsnCodons && !found)
+        {
+            if (strncmp(codon, Asn[i], size) == 0)
+            {
+                found = true;
+            }
+            else
+            {
+                i++;
+            }
+        }
+    }
+    else if (strncmp(aminoacid, "Lys", size) == 0)
+    {
+        while (i < numberOfLysCodons && !found)
+        {
+            if (strncmp(codon, Lys[i], size) == 0)
+            {
+                found = true;
+            }
+            else
+            {
+                i++;
+            }
+        }
+    }
+    else if (strncmp(aminoacid, "Asp", size) == 0)
+    {
+        while (i < numberOfAspCodons && !found)
+        {
+            if (strncmp(codon, Asp[i], size) == 0)
+            {
+                found = true;
+            }
+            else
+            {
+                i++;
+            }
+        }
+    }
+    else if (strncmp(aminoacid, "Glu", size) == 0)
+    {
+        while (i < numberOfGluCodons && !found)
+        {
+            if (strncmp(codon, Glu[i], size) == 0)
+            {
+                found = true;
+            }
+            else
+            {
+                i++;
+            }
+        }
+    }
+    else if (strncmp(aminoacid, "Cys", size) == 0)
+    {
+        while (i < numberOfCysCodons && !found)
+        {
+            if (strncmp(codon, Cys[i], size) == 0)
+            {
+                found = true;
+            }
+            else
+            {
+                i++;
+            }
+        }
+    }
+    else if (strncmp(aminoacid, "Trp", size) == 0)
+    {
+        while (i < numberOfTrpCodons && !found)
+        {
+            if (strncmp(codon, Trp[i], size) == 0)
+            {
+                found = true;
+            }
+            else
+            {
+                i++;
+            }
+        }
+    }
+    else if (strncmp(aminoacid, "Arg", size) == 0)
+    {
+        while (i < numberOfArgCodons && !found)
+        {
+            if (strncmp(codon, Arg[i], size) == 0)
+            {
+                found = true;
+            }
+            else
+            {
+                i++;
+            }
+        }
+    }
+    else if (strncmp(aminoacid, "Gly", size) == 0)
+    {
+        while (i < numberOfGlyCodons && !found)
+        {
+            if (strncmp(codon, Gly[i], size) == 0)
             {
                 found = true;
             }
