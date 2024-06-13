@@ -1,6 +1,5 @@
 #include "aminoacid.h"
 
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
@@ -80,8 +79,6 @@ void replaceInput(const char input[], char output[], size_t size)
 
         index += 3; // We go to the next codon, so we need to jump three characters.
     }
-
-    printf("%s\n", copy);
     strncpy(output, copy, size);
 }
 

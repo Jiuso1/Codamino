@@ -7,17 +7,23 @@
 
 int main(void)
 {
-    time_t start = 0;
-    time_t end = 0;
     const char *input = "UUCCUGAUAAUGGUGAGCCCGACGGCGUACUGACACCAGAACAAGGACGAGUGCUGGAGGGGG";
     size_t size = strlen(input) + 1; // We reserve needed memory plus one more for '\0'.
     char output[size];
+    clock_t start = 0;
+    clock_t end = 0;
+    double timeSpent = 0;
 
-    time(&start);
+    start = clock();
     replaceInput(input, output, size);
-    time(&end);
+    end = clock();
 
-    printf("The function lasted %ld seconds\n", end - start);
+    timeSpent = (double)(end - start) / CLOCKS_PER_SEC; // We get seconds.
+    timeSpent *= 1000;                                  // We transform seconds to milliseconds.
+
+    printf("%s\n", output);
+
+    printf("The function lasted %f milliseconds\n", timeSpent);
 
     return EXIT_SUCCESS;
 }
