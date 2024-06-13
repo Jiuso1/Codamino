@@ -51,7 +51,7 @@ const int numberOfTrpCodons = 1;
 const int numberOfArgCodons = 6;
 const int numberOfGlyCodons = 4;
 
-void replaceInput(const char input[], char output[], size_t size)
+void replaceInput(const char input[], char output[], const size_t size)
 {
     char copy[size];
     int index = 0;                           // Index used as iterator.

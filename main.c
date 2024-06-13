@@ -8,7 +8,7 @@
 int main(void)
 {
     const char *input = "UUCCUGAUAAUGGUGAGCCCGACGGCGUACUGACACCAGAACAAGGACGAGUGCUGGAGGGGG";
-    size_t size = strlen(input) + 1; // We reserve needed memory plus one more for '\0'.
+    const size_t size = strlen(input) + 1; // We reserve needed memory plus one more for '\0'.
     char output[size];
     clock_t start = 0;
     clock_t end = 0;
