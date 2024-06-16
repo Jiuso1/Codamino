@@ -31,11 +31,9 @@ int main(void)
         while (!feof(inputFile) && (strncmp(inputFileString, "", SIZE) != 0)) // While the file hasn't finished:
         {
             fread(inputFileString, sizeof(inputFileString), 1, inputFile);
-            printf("%s\n", inputFileString);
             if ((strncmp(inputFileString, "", SIZE) != 0)) // If the file hasn't finished:
             {
-                printf("%s\n", inputFileString);
-                bufferSize += SIZE;                                          // The buffer size increases to save the new codon in buffer.
+                bufferSize += strlen(inputFileString);                       // The buffer size increases to save the new string in buffer.
                 buffer = (char *)realloc(buffer, bufferSize * sizeof(char)); // The buffer reallocates to supply the new buffer size. Previous string stay in buffer.
                 if (buffer != NULL)                                          // If the reallocation was good:
                 {
